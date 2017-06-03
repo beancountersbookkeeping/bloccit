@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
   resources :advertisements
+=======
+  resources :questions
+>>>>>>> checkpoint20
 
   resources :posts
 
