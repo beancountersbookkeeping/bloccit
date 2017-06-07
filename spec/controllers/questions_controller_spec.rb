@@ -4,12 +4,12 @@ include RandomData
 RSpec.describe QuestionsController, type: :controller do
   
   let (:my_question) do 
-    Question.create {
+    Question.create(
       id: 1, 
       title: RandomData.random_sentence, 
       body: RandomData.random_paragraph, 
       resolved: false
-    }
+    )
   end
 
   describe "GET #index" do
@@ -22,7 +22,6 @@ RSpec.describe QuestionsController, type: :controller do
       get :index
       expect(assigns(:questions)).to eq([my_question])
   end
-
-
+end
 
 end
