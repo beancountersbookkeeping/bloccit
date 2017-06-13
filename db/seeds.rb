@@ -1,14 +1,6 @@
- require 'random_data'
+require 'random_data'
  
  # Create Sponsored Posts
- 5.times do 
-  SponsoredPost.create!(
-   topic: topics.sample,
-   title: RandomData.random_sentence,
-   body: RandomData.random_paragraph,
-   price: RandomData.random_price
-   )
-  end 
  
   # Create Topics
  15.times do
@@ -18,6 +10,15 @@
    )
  end
  topics = Topic.all
+
+ 10.times do 
+  SponsoredPost.create!(
+   topic: topics.sample,
+   title: RandomData.random_sentence,
+   body: RandomData.random_paragraph,
+   price: RandomData.random_price
+   )
+ end 
 
  # Create Posts
  50.times do

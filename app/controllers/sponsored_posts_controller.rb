@@ -1,18 +1,18 @@
 class SponsoredPostsController < ApplicationController
   def show
-    @sponsored_post = Sponsored_Post.all 
+    @sponsored_post = SponsoredPost.all 
   end
 
   def new
-    @sponsored_post = Sponsored_Post.find(params[:id])
+    @sponsored_post = SponsoredPost.new
   end
 
   def edit
-     @sponsored_post = Sponsored_Post.find(params[:id])
+     @sponsored_post = SponsoredPost.find(params[:id])
   end
 
   def create
-     @sponsored_post = Sponsored_Post.new
+     @sponsored_post = SponsoredPost.new
      @sponsored_post.name = params[:sponsored_post][:name]
      @sponsored_post.description = params[:sponsored_post][:description]
      @sponsored_post.public = params[:sponsored_post][:public]
@@ -26,7 +26,7 @@ class SponsoredPostsController < ApplicationController
   end
    
    def update
-     @sponsored_post = Sponsored_Post.find(params[:id])
+     @sponsored_post = SponsoredPost.find(params[:id])
  
      @sponsored_post.name = params[:sponsored_post][:name]
      @sponsored_post.description = params[:sponsored_post][:description]
@@ -42,7 +42,7 @@ class SponsoredPostsController < ApplicationController
    end
    
   def destroy
-     @sponsored_post = Sponsored_Post.find(params[:id])
+     @sponsored_post = SponsoredPost.find(params[:id])
  
      if @sponsored_post.destroy
        flash[:notice] = "\"#{@sponsored_post.name}\" was deleted successfully."
