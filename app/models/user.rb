@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :posts
+  has_many :comments
   
    before_save { self.email = email.downcase if email.present? }
 
@@ -15,7 +16,7 @@ class User < ActiveRecord::Base
 
    has_secure_password
    
-   enum role: [:member, :admin, :moderator]
+   enum role: [:member, :admin]
    
    def format_name
        if name

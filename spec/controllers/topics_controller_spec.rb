@@ -154,11 +154,6 @@ RSpec.describe TopicsController, type: :controller do
       create_session(user)
     end
     
-   context "moderator user" do
-    before do
-      user = User.create!(name: "Bloccit", email: "user@bloccit.com", password: "helloworld", role: :moderator)
-      create_session(user)
-    end
 
     describe "GET index" do
       it "returns http success" do
@@ -278,4 +273,6 @@ RSpec.describe TopicsController, type: :controller do
       end
     end
   end
-end
+end 
+ 
+

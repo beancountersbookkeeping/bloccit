@@ -255,11 +255,6 @@ RSpec.describe PostsController, type: :controller do
       other_user.admin!
       create_session(other_user)
     end
-     context "moderator user doing update on a post they don't own" do
-    before do
-      other_user.moderator!
-      create_session(other_user)
-    end
 
     describe "GET show" do
       it "returns http success" do
