@@ -17,6 +17,7 @@ RSpec.describe Post, type: :model do
    it { is_expected.to validate_presence_of(:user) }
    it { is_expected.to have_many(:comments) }
    it { is_expected.to have_many(:votes) }
+   it { is_expected.to have_many(:favorites) }
  
    it { is_expected.to validate_length_of(:title).is_at_least(5) }
    it { is_expected.to validate_length_of(:body).is_at_least(20) }
@@ -84,10 +85,11 @@ RSpec.describe Post, type: :model do
       end 
       it "calls when post is created" do 
          post = topic.posts.new(title: RandomData.random_sentence, body: RandomData.random_sentence, user: user) 
-         expect(post).to recieve(:create_vote)
+         expect(post).to receive(:create_vote)
          post.save
      end 
      it "associates the vote with owner" do 
         expect(post.votes.first.user).to eq(post.user)
    end 
+end
 end
